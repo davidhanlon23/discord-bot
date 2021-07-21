@@ -4,7 +4,7 @@
   "description": "first take at making discord bot for personal server",
   "main": "bot.js",
   "scripts": {
-    "start": "start"
+    "start": "node bot.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/davidhanlon23/discord-bot#readme",
   "dependencies": {
-    "discord.js": "^12.5.3"
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
+    "mongoose": "^5.13.3"
   }
 }
