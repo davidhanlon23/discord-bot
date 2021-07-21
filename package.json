@@ -1,1 +1,26 @@
-
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "first take at making discord bot for personal server",
+  "main": "bot.js",
+  "scripts": {
+    "start": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidhanlon23/discord-bot.git"
+  },
+  "keywords": [
+    "Discord",
+    "Bot"
+  ],
+  "author": "David Hanlon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidhanlon23/discord-bot/issues"
+  },
+  "homepage": "https://github.com/davidhanlon23/discord-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  }
+}
