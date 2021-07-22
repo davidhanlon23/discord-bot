@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 const mongoose = require('mongoose');
 require('dotenv').config();
-// 
+
 // mongoose.connect('mongodb+srv://script:passwordhere@cluster0.x7emi.mongodb.net/jimmy?retryWrites=true&w=majority', { useUnifiedTopology: true, useNewUrlParser: true })
 const db = process.env.DB_URI;
 mongoose
@@ -155,5 +155,5 @@ function ReactionEmojiGrab(reactionArg){
 
 */
 
-
+var port = process.env.PORT || 8080;
 client.login(process.env.TOKEN);
