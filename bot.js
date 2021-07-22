@@ -70,7 +70,7 @@ client.on('guildMemberAdd', async member => {
  
 client.on("message", async message => {
   if(message.content.startsWith("-reaction")){
-    if(message.author.id != '430174837911060490') return message.channel.send('only mutant can run this command!')
+    if(message.author.id != '316828432077946880') return message.channel.send('only David can run this command!')
     const args = message.content.split(" ");
     if(!args[1]) return message.channel.send("Please include an emoji");
     if(!args[2]) return message.channel.send("There must be an id for the message");
@@ -99,8 +99,9 @@ client.on("message", async message => {
     }
     message.channel.send('Set this channel to the welcome channel.')
   }
+  // My member ID: 316828432077946880
   if(message.content.startsWith('-addautorole')){
-    if(message.author.id != '430174837911060490') return message.channel.send('only mutant can run this command!')
+    if(message.author.id != '316828432077946880') return message.channel.send('only David can run this command!')
     const args = message.content.split(" ");
     if(!args[1]) return message.channel.send('You must include a role id!')
     let server = await serverModel.findOne().where('id', message.guild.id).exec()
