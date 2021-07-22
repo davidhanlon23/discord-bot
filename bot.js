@@ -3,7 +3,6 @@ const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-// mongoose.connect('mongodb+srv://script:passwordhere@cluster0.x7emi.mongodb.net/jimmy?retryWrites=true&w=majority', { useUnifiedTopology: true, useNewUrlParser: true })
 const db = process.env.DB_URI;
 mongoose
   .connect(
@@ -24,9 +23,6 @@ client.on("message", msg => {
     msg.reply("pong");
   }
 });
-
-
-/*
 
 const welcomes = ['Welcome to the cool kids club @member! Check out <#854477959389642755> and get some <#865695792894312459>. Glad to have you here!', 'Hey look it’s @member! Welcome to prototype. Please check out <#854477959389642755> and give yourself some <#865695792894312459>. Let’s get this party started! :D']
 const serverSchema = new mongoose.Schema({
@@ -153,7 +149,5 @@ function ReactionEmojiGrab(reactionArg){
   }
 }
 
-*/
 
-var port = process.env.PORT || 8080;
 client.login(process.env.TOKEN);
