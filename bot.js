@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 const mongoose = require('mongoose');
+const RoleModel = require("./models/roleModel");
+const ServerModel = require("./models/serverModel");
 require('dotenv').config();
 
 // Connect to mongoDB
@@ -21,27 +23,15 @@ client.on("ready", () => {
 
 client.on("message", msg => {
   if (msg.content === "ping") {
-    msg.reply("pong");
+    msg.reply("pong pong");
   }
 });
 
 // Welcome messages for new people to the server. TODO: Change channel ids
-const welcomes = ['Welcome to the cool kids club @member! Check out <#854477959389642755> and get some <#865695792894312459>. Glad to have you here!', 'Hey look it’s @member! Welcome to prototype. Please check out <#854477959389642755> and give yourself some <#865695792894312459>. Let’s get this party started! :D']
-const serverSchema = new mongoose.Schema({
-  id: String,
-  welcomeChannel: String,
-  autoroles: { type: [ String ], default: [] } 
-})
+const welcomes = ['Welcome to the cool kids club @member! Check out <#854477959389642755> and get some <#865695792894312459>. Glad to have you here!', 'Hey look it’s @member! Welcome to prototype. Please check out <#854477959389642755> and give yourself some <#865695792894312459>. Let’s get this party started! :D'];
+
  
-const roleSchema = new mongoose.Schema({
-  message: String,
-  emoji: String,
-  role: String
-})
- 
-const serverModel = mongoose.model('server', serverSchema)
-const roleModel = mongoose.model('role', roleSchema)
- 
+// set bot status
 client.on('ready', async () => {
     await client.user.setActivity('watching over the man cubs', { type: 'PLAYING' })
     console.log('ready')
@@ -101,7 +91,6 @@ client.on("message", async message => {
     }
     message.channel.send('Set this channel to the welcome channel.')
   }
-  // My member ID: 316828432077946880
   if(message.content.startsWith('-addautorole')){
     if(message.author.id != process.env.DAVIDS_ID) return message.channel.send('only David can run this command!')
     const args = message.content.split(" ");
